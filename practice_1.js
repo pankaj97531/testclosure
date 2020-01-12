@@ -19,8 +19,7 @@ function testClosure2(x){
 	var innerFunc = function(y){
 		this.y = y;
 		
-		this.result = dynamicval + this.y;
-		
+		this.result = dynamicval + this.y;		
 	}
 	return innerFunc.bind(this);
 }
@@ -44,3 +43,16 @@ console.log(t3());
 console.log(t3());
 console.log(t3());
 console.log(t3());
+
+function testClosure4(x, y){
+	this.x = x
+	var dynamicval = this.x;
+	var innerFunc = function(y){
+		this.y = y;
+		this.result = dynamicval + this.y;		
+	}
+	return new innerFunc(y);
+}
+
+var t4 = new testClosure4(4,5);
+console.log(t4.result);
