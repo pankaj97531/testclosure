@@ -1,3 +1,29 @@
+a=10;
+console.log(b);//undefined
+c++;
+console.log(c);//NaN
+var a;
+var b;
+var c;
+console.log(a);//10
+/****************************************/
+console.log(a);
+a=10;
+console.log(a);
+var a;
+console.log(a);
+function outer(){
+    var a=20;
+    function inner(){
+        console.log(a);
+        a=30;
+        console.log(a);
+        var a;
+    }
+    inner();
+}
+outer();
+console.log(a);
 /*********Hoisting and closure************/
 console.log(x);
 var x=10;
